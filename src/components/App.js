@@ -364,7 +364,7 @@ getPunkOwner = async (punkIndex) => {
           <Loading />
         ) : (
           <>
-            <HashRouter basename="/home">
+            <HashRouter basename="/">
               <Navbar />
               <Route
                 path="/"
