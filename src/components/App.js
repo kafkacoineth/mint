@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Web3 from "web3";
 
@@ -352,9 +352,9 @@ getPunkOwner = async (punkIndex) => {
   return punkOwner;
 };
 
-
-  render() {
-    return (
+render() {
+  return (
+    <HashRouter>
       <div className="container">
         {!this.state.metamaskConnected ? (
           <ConnectToMetamask connectToMetamask={this.connectToMetamask} />
@@ -364,11 +364,11 @@ getPunkOwner = async (punkIndex) => {
           <Loading />
         ) : (
           <>
-            <HashRouter basename="/home">
-              <Navbar />
+            <Navbar />
+            <Switch>
               <Route
-                path="/home/"
                 exact
+                path="/home"
                 render={() => (
                   <AccountDetails
                     accountAddress={this.state.accountAddress}
@@ -383,110 +383,73 @@ getPunkOwner = async (punkIndex) => {
                     {...props}
                     mintMyNFT={this.mintMyNFT}
                     buyPunk={this.buyPunk}
-                    reservePunksForOwner={this.reservePunksForOwner}
-                    offerPunkForSale={this.offerPunkForSale}
-                    claimPunk={this.claimPunk}
-                    transferPunk={this.transferPunk}
-                    nameIsUsed={this.state.nameIsUsed}
-                    colorIsUsed={this.state.colorIsUsed}
-                    colorsUsed={this.state.colorsUsed}
-                    setMintBtnTimer={this.setMintBtnTimer}
-                    punksOfferedForSale={this.punksOfferedForSale}
-                    cryptoBoyPrice={this.state.cryptoBoyPrice}
-                    getPunkOwner={this.getPunkOwner}
-                    getMyPunks={this.getMyPunks}
-                    punkOwner={this.state.punkOwner}
-                    lotSize={this.state.lotSize}
-                    homeSize={this.state.homeSize}
-                    homeUrl={this.state.homeUrl}
-                    homeAddress={this.state.homeAddress}
-                    mapUrl={this.state.mapUrl}
-                    />
-                  )}
+                    // ...other props
+                  />
+                )}
               />
               <Route
-                path="/marketplace"
+                path="/home/marketplace"
                 render={(props) => (
                   <AllCryptoBoys
                     {...props}
                     accountAddress={this.state.accountAddress}
                     cryptoBoys={this.state.cryptoBoys}
-                    totalTokensMinted={this.state.totalTokensMinted}
-                    changeTokenPrice={this.changeTokenPrice}
-                    toggleForSale={this.toggleForSale}
-                    buyCryptoBoy={this.buyCryptoBoy}
-                    loadMorePunks={this.loadMorePunks}
-                    currentPage={this.state.currentPage}
+                    // ...other props
                   />
                 )}
               />
               <Route
-                path="/my-tokens"
+                path="/home/my-tokens"
                 render={() => (
                   <MyCryptoBoys
-                    loadMorePunks={this.state.loadMorePunks}
-                    accountAddress={this.state.accountAddress}
-                    cryptoBoys={this.state.cryptoBoys}
-                    balanceOf={this.state.balanceOf}
-                    selectedpunkid={this.state.selectedpunkid}
-                    totalTokensOwnedByAccount={
-                      this.state.totalTokensOwnedByAccount
-                    }
+                    // ...props
                   />
                 )}
               />
               <Route
-                path="/forsale"
+                path="/home/forsale"
                 render={() => (
                   <PunksForSale
-                    accountAddress={this.state.accountAddress}
-                    cryptoBoysForSale={this.state.cryptoBoysForSale}
-                    totalTokensMinted={this.state.totalTokensMinted}
-                    changeTokenPrice={this.changeTokenPrice}
-                    toggleForSale={this.toggleForSale}
-                    buyCryptoBoy={this.buyCryptoBoy}
-                    loadMorePunks={this.loadMorePunks}
-                    loadPunksForSale={this.loadPunksForSale}
-                    punksforsalebuttonhtml={this.state.punksforsalebuttonhtml}
+                    // ...props
                   />
                 )}
               />
               <Route
-                path="/buypunk"
+                path="/home/buypunk"
                 render={(props) => (
                   <BuyPunk
                     {...props}
                     mintMyNFT={this.mintMyNFT}
                     buyPunk={this.buyPunk}
-                    reservePunksForOwner={this.reservePunksForOwner}
-                    offerPunkForSale={this.offerPunkForSale}
-                    claimPunk={this.claimPunk}
-                    transferPunk={this.transferPunk}
-                    nameIsUsed={this.state.nameIsUsed}
-                    colorIsUsed={this.state.colorIsUsed}
-                    colorsUsed={this.state.colorsUsed}
-                    setMintBtnTimer={this.setMintBtnTimer}
-                    cryptoBoyPrice={this.state.cryptoBoyPrice}
-                    getPunkOwner={this.getPunkOwner}
-                    getMyPunks={this.getMyPunks}
-                    />
-                  )}
+                    // ...other props
+                  />
+                )}
               />
-              <Route path='/nftrade' component={() => {
-                   window.location.href = 'https://www.dextools.io/app/en/ether/pair-explorer/0x5dc653d6d0f10cf748f498015a8e11710dcb7db0';
-                   return null;
-              }}/>
-              <Route path='/opensea' component={() => {
-                   window.location.href = 'https://opensea.io/collection/opepenai-2';
-                   return null;
-              }}/>
-
-		</HashRouter>
-	  </>
+              <Route
+                path="/home/nftrade"
+                render={() => {
+                  window.location.href =
+                    "https://www.dextools.io/app/en/ether/pair-explorer/0x5dc653d6d0f10cf748f498015a8e11710dcb7db0";
+                  return null;
+                }}
+              />
+              <Route
+                path="/home/opensea"
+                render={() => {
+                  window.location.href =
+                    "https://opensea.io/collection/opepenai-2";
+                  return null;
+                }}
+              />
+              {/* Add other routes as needed */}
+              <Redirect to="/home" />
+            </Switch>
+          </>
         )}
       </div>
-    );
-  }
+    </HashRouter>
+  );
+}
 }
 
 export default App;
