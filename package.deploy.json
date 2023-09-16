@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ProjectOpenSea/opensea-creatures/issues"
   },
-  "homepage": "https://www.kafkacoineth.com/home",
+  "homepage": "/home/",
   "dependencies": {
     "@0x/subproviders": "^6.4.1",
     "@openzeppelin/contracts": "^4.3.1",
