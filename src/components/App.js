@@ -364,10 +364,10 @@ getPunkOwner = async (punkIndex) => {
           <Loading />
         ) : (
           <>
-            <HashRouter basename="/">
+            <HashRouter basename="/home">
               <Navbar />
               <Route
-                path="/"
+                path="/home/"
                 exact
                 render={() => (
                   <AccountDetails
@@ -377,7 +377,7 @@ getPunkOwner = async (punkIndex) => {
                 )}
               />
               <Route
-                path="/mint"
+                path="/home/mint"
                 render={(props) => (
                   <FormAndPreview
                     {...props}

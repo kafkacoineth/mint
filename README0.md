@@ -1,2 +1,0 @@
-# mintbnetly
-Bnetly main website 
