@@ -41,7 +41,8 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
         </p>
         <hr className="my-4" />
         <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
-        <br className="my-2" />
+        <br />
+        <br />
         <button onClick={handleClick}>Publish</button>
 
         <hr className="my-4" />
