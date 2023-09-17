@@ -8,7 +8,7 @@ import "./styles.css";
 const ConnectToMetamask = ({ connectToMetamask }) => {
   const [value, setValue] = useState('');
 
-   
+
 
   return (
     <div>
@@ -20,10 +20,30 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
         <p>
         Kafka the german cockroach
         </p>
-
+        <div className="two-column-layout">
+          <div className="column">
+            <p><img src="images/logo.png" width="100%" alt="Bnetly" /></p>
+          </div>
+          <div className="column">
+            <p>
+            
+            <a href="https://github.com/kafkacoineth" >
+              Github.com/kafkacoineth
+            </a>
+            <hr className="my-4" />
+            <a href="https://x.com/kafkacoineth" >
+              x.com/kafkacoineth
+            </a>
+            <hr className="my-4" />
+            <a href="/home/" >
+              Kafka Home
+            </a>
+            </p>
+          </div>
+        </div>
         <hr className="my-4" />
         <a href="#" >
-          <img src="images/logo.png" width="100%" alt="Bnetly" />
+
         </a>
         <hr className="my-4" />
         <button
@@ -34,17 +54,7 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
           Connect Wallet
         </button>
         <hr className="my-4" />
-        <a href="https://github.com/kafkacoineth" >
-          Github.com/kafkacoineth
-        </a>
-        <hr className="my-4" />
-        <a href="https://x.com/kafkacoineth" >
-          x.com/kafkacoineth
-        </a>
-        <hr className="my-4" />
-        <a href="/home/" >
-          Kafka Home
-        </a>
+
       </div>
       <hr className="my-4" />
 
