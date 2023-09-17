@@ -87,14 +87,14 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
                       <hr className="my-4" />
                       <p>
-                        Account Address: <a href={`/home/add_wallet/?wallet_address=${accountAddress}`}>{accountAddress}</a>
+                      Address: <a href={`/home/add_wallet/?wallet_address=${accountAddress}`}>{accountAddress}</a>
                       </p>
                       <hr className="my-4" />
                       <input type="hidden" name="accountAddress" value={accountAddress} />
                       <input type="hidden" name="csrf_token" value={csrfToken} />
                       <br className="my-2" />
                       <br className="my-2" />
-                      <button onClick={handleClick}>Verify</button>
+                      <button onClick={handleClick} >Verify</button>
                       <hr className="my-4" />
 
                       <input
@@ -105,8 +105,9 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         style={{ width: '100%' }}
                       />
                       <hr className="my-4" />
+                      <a href="/home/my_profile_kafka/" >My Profile</a>
+                      <hr className="my-4" />
 
-  
           </div>
         </div>
       </div>
