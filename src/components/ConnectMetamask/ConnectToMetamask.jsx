@@ -26,7 +26,7 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
           </div>
           <div className="column">
             <p>
-            
+
             <a href="https://github.com/kafkacoineth" >
               Github.com/kafkacoineth
             </a>
@@ -36,30 +36,24 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
             </a>
             <hr className="my-4" />
             <a href="/home/" >
-              Kafka Home
+              Sign-in
             </a>
+            <hr className="my-4" />
+            <button
+              onClick={connectToMetamask}
+              className="btn btn-primary d-flex align-items-center"
+              style={{ fontSize: "0.9rem", letterSpacing: "0.14rem" }}
+            >
+              Connect Wallet
+            </button>
             </p>
           </div>
         </div>
         <hr className="my-4" />
-        <a href="#" >
-
-        </a>
-        <hr className="my-4" />
-        <button
-          onClick={connectToMetamask}
-          className="btn btn-primary d-flex align-items-center"
-          style={{ fontSize: "0.9rem", letterSpacing: "0.14rem" }}
-        >
-          Connect Wallet
-        </button>
-        <hr className="my-4" />
 
       </div>
-      <hr className="my-4" />
 
-      <div className="container">
-        <hr className="my-4" />
+      <div className="container mt-5">
         Kafkacoineth.com &copy; 2023 All rights reserved.
         <hr className="my-4" />
       </div>
