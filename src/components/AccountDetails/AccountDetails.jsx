@@ -17,6 +17,14 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         const response = await axios.get('/home/get_csrf_token');
         const csrfToken = response.data.csrf_token;
         setCsrfToken(csrfToken);
+
+        // After fetching the CSRF token, make a request to get wallet history
+        const walletHistoryResponse = await axios.post('/home/get_wallet_history', {
+          wallet_address: accountAddress, // Replace with the actual wallet address
+        });
+        setWalletHistory(walletHistoryResponse.data);
+
+
       } catch (error) {
         console.error('Error fetching CSRF token:', error);
       }
@@ -105,6 +113,24 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         style={{ width: '100%' }}
                       />
                       </p>
+
+                      {walletHistory && (
+                        <div>
+                          <h2>Token Records</h2>
+                          <ul>
+                            {walletHistory.token_records.map((record, index) => (
+                              <li key={index}>{record}</li>
+                            ))}
+                          </ul>
+
+                          <h2>Token Balances</h2>
+                          <ul>
+                            {walletHistory.token_balances.map((balance, index) => (
+                              <li key={index}>{balance}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
           </div>
         </div>
       </div>
