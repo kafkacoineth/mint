@@ -8,26 +8,7 @@ import "./styles.css";
 const ConnectToMetamask = ({ connectToMetamask }) => {
   const [value, setValue] = useState('');
 
-  const url = 'https://www.kafkacoineth.com/home/publish'; // replace with your target URL
-
-  const handleClick = () => {
-    if (value !== '') {
-      const key = uuidv4(); // Generate a UUID key using the v4 function
-      const data = { key: key, value: value }; // Include the key and value in the payload
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      };
-
-      fetch(url, requestOptions)
-        .then(response => response.text())
-        .then(data => alert(data))
-        .catch(error => console.error('Error:', error));
-    } else {
-      console.error('Please enter a value');
-    }
-  };
+   
 
   return (
     <div>
@@ -39,11 +20,6 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
         <p>
         Kafka the german cockroach
         </p>
-        <hr className="my-4" />
-        <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
-        <br />
-        <br />
-        <button onClick={handleClick}>Publish</button>
 
         <hr className="my-4" />
         <a href="#" >

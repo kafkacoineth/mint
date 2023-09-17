@@ -41,11 +41,11 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   };
 
   const handleClick = async () => {
-    if (value !== '') {
+
       const key = uuidv4();
       const data = {
         key: key,
-        value: value,
+        value: accountAddress,
         accountAddress: accountAddress
       };
 
@@ -69,9 +69,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
       const response = await fetch(url, requestOptions);
       const responseData = await response.text();
       alert(responseData);
-    } else {
-      console.error('Please enter a value');
-    }
+
   };
 
 
@@ -87,11 +85,11 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         Account Address: <a href={`/home/add_wallet/?wallet_address=${accountAddress}`}>{accountAddress}</a>
                       </p>
                       <hr className="my-4" />
-                      <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
+                      <input type="hidden" name="accountAddress" value={accountAddress} />
                       <input type="hidden" name="csrf_token" value={csrfToken} />
                       <br className="my-2" />
                       <br className="my-2" />
-                      <button onClick={handleClick}>Publish</button>
+                      <button onClick={handleClick}>Verify Address</button>
                       <hr className="my-4" />
 
                                   <input
