@@ -55,12 +55,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
       // Attach the signature to the payload
       data.signature = signature;
 
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      };
-      
+ 
 
       const requestOptions = {
         method: 'POST',
