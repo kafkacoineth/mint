@@ -106,9 +106,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       <hr className="my-4" />
 
-
-
-            </p>
+  
           </div>
         </div>
       </div>
