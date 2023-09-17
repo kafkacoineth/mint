@@ -21,7 +21,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
         const walletHistoryResponse = await axios.get(`/home/get_wallet_history?wallet_address=${accountAddress}`);
         alert(walletHistoryResponse.data);
-        setWalletHistory(walletHistoryResponse.data);
+        const parsedResponse = JSON.parse(walletHistoryResponse.data);
+        setWalletHistory(parsedResponse);
 
 
       } catch (error) {
