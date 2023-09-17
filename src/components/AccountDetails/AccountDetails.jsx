@@ -104,7 +104,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         placeholder="Signature"
                         style={{ width: '100%' }}
                       />
-
+                      </p>
           </div>
         </div>
       </div>
