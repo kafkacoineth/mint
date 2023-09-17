@@ -65,6 +65,9 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
           x.com/kafkacoineth
         </a>
         <hr className="my-4" />
+        <a href="/home/" >
+          Kafka Home
+        </a>
       </div>
       <hr className="my-4" />
 
