@@ -1,8 +1,8 @@
 {
-  "name": "cryptopunks",
+  "name": "KafkaCoinETH",
   "version": "0.1.0",
-  "description": "Crypto Punks Marketplace",
-  "author": "devpavan04",
+  "description": "KafkaCoinETH website",
+  "author": "kafkacoineth",
   "homepage": "/home/",
   "repository": {
     "type": "git",
