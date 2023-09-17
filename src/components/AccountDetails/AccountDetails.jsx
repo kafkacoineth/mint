@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid'; // Import the v4 function from the uuid library
 import Web3 from 'web3';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const AccountDetails = ({ accountAddress, accountBalance }) => {
@@ -55,7 +55,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
       // Attach the signature to the payload
       data.signature = signature;
 
- 
+
 
       const requestOptions = {
         method: 'POST',
