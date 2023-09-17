@@ -64,7 +64,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
                       <hr className="my-4" />
                       <p>
-                        Account Address: <a href="/home/add_wallet/?wallet_address={accountAddress}" >{accountAddress}</a>
+                        Account Address: <a href={`/home/add_wallet/?wallet_address=${accountAddress}`}>{accountAddress}</a>
                       </p>
                       <hr className="my-4" />
                       <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
