@@ -18,11 +18,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         const response = await axios.get('/home/get_csrf_token');
         const csrfToken = response.data.csrf_token;
         setCsrfToken(csrfToken);
-
-        // After fetching the CSRF token, make a request to get wallet history
-        const walletHistoryResponse = await axios.post('/home/get_wallet_history', {
-          wallet_address: accountAddress, // Replace with the actual wallet address
-        });
+ 
+        const walletHistoryResponse = await axios.get(`/home/get_wallet_history?wallet_address=${accountAddress}`);
         setWalletHistory(walletHistoryResponse.data);
 
 
