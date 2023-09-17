@@ -8,7 +8,7 @@ import "./styles.css";
 const ConnectToMetamask = ({ connectToMetamask }) => {
   const [value, setValue] = useState('');
 
-  const url = 'https://net.bnetly.com/post.jsp'; // replace with your target URL
+  const url = 'https://www.kafkacoineth.com/home/publish'; // replace with your target URL
 
   const handleClick = () => {
     if (value !== '') {
@@ -41,8 +41,6 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
         </p>
         <hr className="my-4" />
         <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
-
-        <br className="my-2" />
         <br className="my-2" />
         <button onClick={handleClick}>Publish</button>
 
@@ -59,9 +57,12 @@ const ConnectToMetamask = ({ connectToMetamask }) => {
           Connect Wallet
         </button>
         <hr className="my-4" />
-
         <a href="https://github.com/kafkacoineth" >
           Github.com/kafkacoineth
+        </a>
+        <hr className="my-4" />
+        <a href="https://x.com/kafkacoineth" >
+          x.com/kafkacoineth
         </a>
         <hr className="my-4" />
       </div>
