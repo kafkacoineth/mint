@@ -70,7 +70,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
       // Send the data to the server and get the response
       const response = await fetch(url, requestOptions);
       const responseData = await response.text();
-      alert(responseData);
+      document.getElementById("verified_button").innerText = "Verified";
     } catch (error) {
       console.error('Error handling click event:', error);
     }
@@ -94,7 +94,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       <input type="hidden" name="csrf_token" value={csrfToken} />
                       <br className="my-2" />
                       <br className="my-2" />
-                      <button onClick={handleClick} >Verify</button>
+                      <button onClick={handleClick} id="verified_button">Verify</button>
                       <hr className="my-4" />
 
                       <input
