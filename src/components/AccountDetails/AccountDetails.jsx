@@ -92,13 +92,13 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       <button onClick={handleClick}>Verify Address</button>
                       <hr className="my-4" />
 
-                                  <input
-                                    type="text"
-                                    value={signature}
-                                    readOnly
-                                    placeholder="Signature"
-                                    style={{ width: '100%' }}
-                                  />
+                      <input
+                        type="hidden"
+                        value={signature}
+                        readOnly
+                        placeholder="Signature"
+                        style={{ width: '100%' }}
+                      />
                       <hr className="my-4" />
 
             <p className="lead">
