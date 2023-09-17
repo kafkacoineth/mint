@@ -7,8 +7,24 @@ import Web3 from 'web3';
 const AccountDetails = ({ accountAddress, accountBalance }) => {
   const [value, setValue] = useState('');
   const [signature, setSignature] = useState('');
-
+  const [csrfToken, setCsrfToken] = useState('');
   const url = 'https://www.kafkacoineth.com/home/add_wallet/'; // replace with your target URL
+
+  useEffect(() => {
+    // Function to fetch the CSRF token
+    const fetchCsrfToken = async () => {
+      try {
+        const response = await axios.get('/home/get_csrf_token');
+        const csrfToken = response.data.csrf_token;
+        setCsrfToken(csrfToken);
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+    };
+
+    // Call the fetchCsrfToken function when the component mounts
+    fetchCsrfToken();
+  }, []);
 
   const signMessage = async () => {
     try {
@@ -44,7 +60,16 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       };
+      
 
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken, // Include the CSRF token in the headers
+        },
+        body: JSON.stringify(data),
+      };
       // Send the data to the server and get the response
       const response = await fetch(url, requestOptions);
       const responseData = await response.text();
@@ -68,7 +93,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       </p>
                       <hr className="my-4" />
                       <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter message here" style={{width: '100%'}} />
-
+                      <input type="hidden" name="csrf_token" value={csrfToken} />
                       <br className="my-2" />
                       <br className="my-2" />
                       <button onClick={handleClick}>Publish</button>
