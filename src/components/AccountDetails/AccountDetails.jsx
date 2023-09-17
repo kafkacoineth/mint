@@ -51,7 +51,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
       // Call the signTransaction function to generate the signature
       const signature = await signMessage(data);
-
+      const url = '/home/add_wallet/'
       // Attach the signature to the payload
       data.signature = signature;
 
