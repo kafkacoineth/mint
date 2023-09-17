@@ -18,7 +18,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         const response = await axios.get('/home/get_csrf_token');
         const csrfToken = response.data.csrf_token;
         setCsrfToken(csrfToken);
- 
+
         const walletHistoryResponse = await axios.get(`/home/get_wallet_history?wallet_address=${accountAddress}`);
         setWalletHistory(walletHistoryResponse.data);
 
@@ -112,7 +112,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      {walletHistory && (
+                      {walletHistory && walletHistory.token_records && walletHistory.token_balances && (
                         <div>
                           <h2>Token Records</h2>
                           <ul>
