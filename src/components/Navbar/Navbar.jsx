@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="container">
         <Link to="/" className="navbar-brand ml-2">
-          Frogdogcoin.com
+          KafkaCoinETH.com
         </Link>
         <div id="navbar" className="navbar">
           <ul
@@ -24,11 +24,11 @@ const Navbar = () => {
               Opensea
             </Link>
           </li>
-            <li className="nav-item">
-              <Link to="nftrade" className="nav-link">
-                Dextools
-              </Link>
-            </li>
+          <li className="nav-item">
+            <Link to="nftrade" className="nav-link">
+              Dextools
+            </Link>
+          </li>
           </ul>
         </div>
       </div>

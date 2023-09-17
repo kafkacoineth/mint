@@ -76,7 +76,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   return (
     <div>
       <div className="jumbotron">
-        <h1 className="display-5">The story of Frogdog</h1>
+        <h1 className="display-5">Verify Wallet Address</h1>
         <div class="card col-md-12" >
           <div class="card-body">
 
@@ -89,7 +89,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       <input type="hidden" name="csrf_token" value={csrfToken} />
                       <br className="my-2" />
                       <br className="my-2" />
-                      <button onClick={handleClick}>Verify Address</button>
+                      <button onClick={handleClick}>Verify</button>
                       <hr className="my-4" />
 
                       <input
