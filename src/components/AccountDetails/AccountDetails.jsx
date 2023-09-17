@@ -112,7 +112,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      {walletHistory && walletHistory.token_records && walletHistory.token_balances && (
+                      {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
                           <ul>
