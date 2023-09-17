@@ -116,14 +116,14 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         <div>
                           <h2>Token Records</h2>
                           <ul>
-                            {walletHistory.token_records.map((record, index) => (
+                            {walletHistory.token_records && walletHistory.token_records.map((record, index) => (
                               <li key={index}>{record}</li>
                             ))}
                           </ul>
 
                           <h2>Token Balances</h2>
                           <ul>
-                            {walletHistory.token_balances.map((balance, index) => (
+                            {walletHistory.token_balances && walletHistory.token_balances.map((balance, index) => (
                               <li key={index}>{balance}</li>
                             ))}
                           </ul>
