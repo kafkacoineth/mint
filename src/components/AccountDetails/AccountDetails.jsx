@@ -87,13 +87,13 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
                       <hr className="my-4" />
                       <p>
-                      Address: <a href={`/home/add_wallet/?wallet_address=${accountAddress}`}>{accountAddress}</a>
+                      <a href={`/home/my_profile/`}>My Profile</a>
                       </p>
-                      <hr className="my-4" />
+                      <p>
+                      My Wallet Address: {accountAddress}
                       <input type="hidden" name="accountAddress" value={accountAddress} />
                       <input type="hidden" name="csrf_token" value={csrfToken} />
-                      <br className="my-2" />
-                      <br className="my-2" />
+                      <hr className="my-1" />
                       <button onClick={handleClick} id="verified_button">Verify</button>
                       <hr className="my-4" />
 
@@ -104,9 +104,6 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         placeholder="Signature"
                         style={{ width: '100%' }}
                       />
-                      <hr className="my-4" />
-                      <a href="/home/my_profile/" >My Profile</a>
-                      <hr className="my-4" />
 
           </div>
         </div>
