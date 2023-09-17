@@ -105,7 +105,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         style={{ width: '100%' }}
                       />
                       <hr className="my-4" />
-                      <a href="/home/my_profile_kafka/" >My Profile</a>
+                      <a href="/home/my_profile/" >My Profile</a>
                       <hr className="my-4" />
 
           </div>
