@@ -117,7 +117,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         placeholder="Signature"
                         style={{ width: '100%' }}
                       />
-                      </p> 
+                      </p>
+                      
                       <ul>
                         {walletLeaders.map((leader, index) => (
                           <li key={index}>
