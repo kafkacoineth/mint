@@ -48,8 +48,20 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
       }
     };
 
-    // Call the fetchCsrfToken function when the component mounts
     fetchCsrfToken();
+    
+    const spanElement = document.querySelector('.wallet_address_span');
+
+    if (spanElement) {
+      const accountAddress = spanElement.innerText;
+
+      if (accountAddress.length >= 8) {
+        const shortenedAddress = accountAddress.substring(0, 4) + '...' + accountAddress.slice(-4);
+        spanElement.innerText = shortenedAddress;
+      }
+    }
+    // Call the fetchCsrfToken function when the component mounts
+
   }, []);
 
   const signMessage = async (message, account) => {
@@ -116,7 +128,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       <a href={`/home/my_profile/`}>My Profile</a>
                       </p>
                       <p>
-                      My Wallet Address: {accountAddress}
+                      My Wallet Address: <span class="wallet_address_span" >{accountAddress}</span>
                       <input type="hidden" name="accountAddress" value={accountAddress} />
                       <input type="hidden" name="csrf_token" value={csrfToken} />
                       <hr className="my-1" />
