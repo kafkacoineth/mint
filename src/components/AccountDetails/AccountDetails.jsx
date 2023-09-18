@@ -12,6 +12,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   const [walletHistory, setWalletHistory] = useState(null);
   const [walletLeaders, setWalletLeaders] = useState(null);
   const [leadersString, setLeadersString] = useState('');
+  const [leadersData, setLeadersData] = useState([]);
 
   useEffect(() => {
     // Function to fetch the CSRF token
@@ -29,7 +30,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
           setWalletLeaders(walletLeadersResponse.data.leaders);
           alert(walletLeadersResponse.data.leaders);
           const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
-
+          const parsedData = JSON.parse(leadersString);
+          setLeadersData(parsedData);
           alert(leadersString);
           console.log(leadersString);
           setLeadersString(leadersString);
@@ -134,8 +136,25 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       <div>
                         <h2>JSON Data as String:</h2>
                         <pre>{leadersString}</pre>
-                      </div> 
-
+                      </div>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Token Owner</th>
+                            <th>Token Count</th>
+                            <th>Balance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {leadersData.map((leader, index) => (
+                            <tr key={index}>
+                              <td>{leader.token_owner}</td>
+                              <td>{leader.token_count}</td>
+                              <td>{leader.balance}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
