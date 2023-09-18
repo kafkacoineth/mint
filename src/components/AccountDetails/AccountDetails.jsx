@@ -136,15 +136,6 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                             <th>Balance</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          {walletLeaders.map((leader, index) => (
-                            <tr key={index}>
-                              <td>{leader.token_owner}</td>
-                              <td>{leader.token_count}</td>
-                              <td>{leader.balance}</td>
-                            </tr>
-                          ))}
-                        </tbody>
                       </table>
 
 
