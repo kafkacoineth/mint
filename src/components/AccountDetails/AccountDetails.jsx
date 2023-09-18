@@ -117,24 +117,16 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         placeholder="Signature"
                         style={{ width: '100%' }}
                       />
-                      </p>
-                      {walletLeaders && (
-                        <>
-                          <h2>Wallet Leaders Records</h2>
-                          <ul>
-                            {walletLeaders.leaders.map((leader, index) => (
-                              <li key={index}>
-                                <strong>Token Owner:</strong> {leader.token_owner}
-                                <br />
-                                <strong>Token Count:</strong> {leader.token_count}
-                                <br />
-                                <strong>Balance:</strong> {leader.balance}
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
+                      </p> 
+                      <ul>
+                        {walletLeaders.map((leader, index) => (
+                          <li key={index}>
+                            <strong>Token Owner:</strong> {leader.token_owner}<br />
+                            <strong>Token Count:</strong> {leader.token_count}<br />
+                            <strong>Balance:</strong> {leader.balance}<br />
+                          </li>
+                        ))}
+                      </ul>
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
