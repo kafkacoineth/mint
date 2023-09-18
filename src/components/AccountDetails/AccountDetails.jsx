@@ -27,8 +27,9 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
           alert(walletLeadersResponse.data);
           const leadersData = walletLeadersResponse.data;
-          console.log(leadersData);
-          setWalletLeaders(walletLeadersResponse.data);
+          const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
+
+          setWalletLeaders(parsedLeadersResponse.leaders);
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
           //alert(parsedLeadersResponse)
           //setWalletLeaders(parsedLeadersResponse);
@@ -136,7 +137,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </tr>
                         </thead>
                         <tbody>
-                          {walletLeaders.leaders && walletLeaders.leaders.map((leader, index) => (
+                          {walletLeaders.map((leader, index) => (
                             <tr key={index}>
                               <td>{leader.token_owner}</td>
                               <td>{leader.token_count}</td>
