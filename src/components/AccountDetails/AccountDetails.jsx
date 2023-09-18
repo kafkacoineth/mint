@@ -134,11 +134,11 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </tr>
                         </thead>
                         <tbody>
-                          {walletLeaders.leaders.map((leader, index) => (
+                            {Object.keys(walletLeaders.leaders).map((leaderKey, index) => (
                             <tr key={index}>
-                              <td>{leader.token_owner}</td>
-                              <td>{leader.token_count}</td>
-                              <td>{leader.balance}</td>
+                              <td>{walletLeaders.leaders[leaderKey].token_owner}</td>
+                              <td>{walletLeaders.leaders[leaderKey].token_count}</td>
+                              <td>{walletLeaders.leaders[leaderKey].balance}</td>
                             </tr>
                           ))}
                         </tbody>
