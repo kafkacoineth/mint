@@ -132,7 +132,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </ul>
                         </>
                       )}
-                      <hr className="my-4" />
+                      
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
