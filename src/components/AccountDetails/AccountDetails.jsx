@@ -118,7 +118,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         style={{ width: '100%' }}
                       />
                       </p>
-                      
+
+                      <h1>Wallet Leaders</h1>
                       <ul>
                         {walletLeaders.map((leader, index) => (
                           <li key={index}>
