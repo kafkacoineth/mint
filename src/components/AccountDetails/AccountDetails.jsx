@@ -26,9 +26,10 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         try {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
           alert(walletLeadersResponse.data);
-          const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
-          alert(parsedLeadersResponse)
-          setWalletLeaders(parsedLeadersResponse);
+          setWalletLeaders(walletLeadersResponse.data);
+          //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
+          //alert(parsedLeadersResponse)
+          //setWalletLeaders(parsedLeadersResponse);
         } catch (error) {
           console.error(error);
           alert(error);
@@ -123,8 +124,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      <h1>Wallet Leaders</h1>
-                      <pre>{walletLeaders}</pre>
+                      <h1>Wallet Leaders</h1>                      
+                      <pre>{JSON.stringify(walletLeaders, null, 2)}</pre>
 
                       {walletHistory && (
                         <div>
