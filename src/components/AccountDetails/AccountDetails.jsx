@@ -27,7 +27,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         setWalletHistory(parsedResponse);
         try {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
-          setWalletLeaders(walletLeadersResponse.data.leaders); 
+          setWalletLeaders(walletLeadersResponse.data.leaders);
           const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
           const parsedData = JSON.parse(leadersString);
           setLeadersData(parsedData);
@@ -48,16 +48,16 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
     fetchCsrfToken();
 
-    const spanElement = document.querySelector('.wallet_address_span');
+    const spanElements = document.querySelectorAll('.wallet_address_span');
 
-    if (spanElement) {
+    spanElements.forEach((spanElement) => {
       const accountAddress = spanElement.innerText;
 
       if (accountAddress.length >= 8) {
         const shortenedAddress = accountAddress.substring(0, 4) + '...' + accountAddress.slice(-4);
         spanElement.innerText = shortenedAddress;
       }
-    }
+    });
     // Call the fetchCsrfToken function when the component mounts
 
   }, []);
