@@ -29,7 +29,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
           alert(walletLeadersResponse.data.leaders);
           const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
 
-          alert(leadersString);          
+          alert(leadersString);
+          console.log(leadersString);          
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
           //alert(parsedLeadersResponse)
           //setWalletLeaders(parsedLeadersResponse);
