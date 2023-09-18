@@ -23,12 +23,16 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         const walletHistoryResponse = await axios.get(`/home/get_wallet_history?wallet_address=${accountAddress}`);
         const parsedResponse = JSON.parse(walletHistoryResponse.data);
         setWalletHistory(parsedResponse);
-
-        const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
-        alert(walletLeadersResponse.data);
-        const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
-        alert(parsedLeadersResponse)
-        setWalletLeaders(parsedLeadersResponse);
+        try {
+          const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
+          alert(walletLeadersResponse.data);
+          const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
+          alert(parsedLeadersResponse)
+          setWalletLeaders(parsedLeadersResponse);
+        } catch (error) {
+          console.error(error);
+          alert(error);
+        }
 
       } catch (error) {
         console.error('Error fetching CSRF token:', error);
