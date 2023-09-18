@@ -11,6 +11,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   const url = 'https://www.kafkacoineth.com/home/add_wallet/'; // replace with your target URL
   const [walletHistory, setWalletHistory] = useState(null);
   const [walletLeaders, setWalletLeaders] = useState(null);
+  const [leadersString, setLeadersString] = useState('');
 
   useEffect(() => {
     // Function to fetch the CSRF token
@@ -30,7 +31,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
           const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
 
           alert(leadersString);
-          console.log(leadersString);          
+          console.log(leadersString);
+          setLeadersString(leadersString);
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
           //alert(parsedLeadersResponse)
           //setWalletLeaders(parsedLeadersResponse);
@@ -129,7 +131,24 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       </p>
 
                       <h1>Top Leaders</h1>
-
+                      {walletLeaders.map((leader, index) => (
+                        <div key={index} className="leader">
+                          <h2>{leader.token_owner}</h2>
+                          <p>Token Count: {leader.token_count}</p>
+                          <p>Balance: {leader.balance}</p>
+                          <ul>
+                            {leader.associated_users &&
+                              leader.associated_users.map((user, userIndex) => (
+                                <li key={userIndex}>
+                                  <strong>Username:</strong> {user.username}<br />
+                                  <strong>Email:</strong> {user.email}<br />
+                                  <strong>X Handle:</strong> {user.x_handle}<br />
+                                  {/* Add other user fields as needed */}
+                                </li>
+                              ))}
+                          </ul>
+                        </div>
+                      ))}
 
 
                       {walletHistory && (
