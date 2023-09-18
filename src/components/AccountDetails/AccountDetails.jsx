@@ -10,7 +10,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   const [csrfToken, setCsrfToken] = useState('');
   const url = 'https://www.kafkacoineth.com/home/add_wallet/'; // replace with your target URL
   const [walletHistory, setWalletHistory] = useState(null);
-  const [walletLeaders, setWalletLeaders] = useState({ leaders: {} });
+  const [walletLeaders, setWalletLeaders] = useState(null);
 
   useEffect(() => {
     // Function to fetch the CSRF token
@@ -144,7 +144,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </ul>
                         </div>
                       ))}
-                      
+
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
