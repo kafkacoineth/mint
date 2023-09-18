@@ -124,8 +124,25 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      <h1>Wallet Leaders</h1>                      
-                      <pre>{JSON.stringify(walletLeaders, null, 2)}</pre>
+                      <h1>Wallet Leaders</h1>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Token Owner</th>
+                            <th>Token Count</th>
+                            <th>Balance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {walletLeaders.leaders.map((leader, index) => (
+                            <tr key={index}>
+                              <td>{leader.token_owner}</td>
+                              <td>{leader.token_count}</td>
+                              <td>{leader.balance}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
 
                       {walletHistory && (
                         <div>
