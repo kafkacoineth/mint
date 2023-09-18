@@ -10,6 +10,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
   const [csrfToken, setCsrfToken] = useState('');
   const url = 'https://www.kafkacoineth.com/home/add_wallet/'; // replace with your target URL
   const [walletHistory, setWalletHistory] = useState(null);
+  const [walletLeaders, setWalletLeaders] = useState(null);
 
   useEffect(() => {
     // Function to fetch the CSRF token
@@ -20,10 +21,12 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         setCsrfToken(csrfToken);
 
         const walletHistoryResponse = await axios.get(`/home/get_wallet_history?wallet_address=${accountAddress}`);
-        alert(walletHistoryResponse.data);
         const parsedResponse = JSON.parse(walletHistoryResponse.data);
         setWalletHistory(parsedResponse);
 
+        const walletLeadersResponse = await axios.get(`/home/get_leaders`);
+        const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
+        setWalletLeaders(parsedLeadersResponse);
 
       } catch (error) {
         console.error('Error fetching CSRF token:', error);
@@ -113,7 +116,23 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         style={{ width: '100%' }}
                       />
                       </p>
-
+                      {walletLeaders && (
+                        <>
+                          <h2>Wallet Leaders Records</h2>
+                          <ul>
+                            {walletLeaders.leaders.map((leader, index) => (
+                              <li key={index}>
+                                <strong>Token Owner:</strong> {leader.token_owner}
+                                <br />
+                                <strong>Token Count:</strong> {leader.token_count}
+                                <br />
+                                <strong>Balance:</strong> {leader.balance}
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+                      <hr className="my-4" />
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
@@ -131,6 +150,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </ul>
                         </div>
                       )}
+
           </div>
         </div>
       </div>
