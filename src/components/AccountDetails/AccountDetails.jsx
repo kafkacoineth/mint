@@ -27,6 +27,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
         alert(walletLeadersResponse.data);
         const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
+        alert(parsedLeadersResponse)
         setWalletLeaders(parsedLeadersResponse);
 
       } catch (error) {
