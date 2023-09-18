@@ -27,6 +27,9 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
           setWalletLeaders(walletLeadersResponse.data.leaders);
           alert(walletLeadersResponse.data.leaders);
+          const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
+
+          alert(leadersString);          
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
           //alert(parsedLeadersResponse)
           //setWalletLeaders(parsedLeadersResponse);
@@ -126,24 +129,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
 
                       <h1>Top Leaders</h1>
 
-                      {walletLeaders.map((leader, index) => (
-                        <div key={index} className="leader">
-                          <h2>{leader.token_owner}</h2>
-                          <p>Token Count: {leader.token_count}</p>
-                          <p>Balance: {leader.balance}</p>
-                          <ul>
-                            {leader.associated_users &&
-                              leader.associated_users.map((user, userIndex) => (
-                                <li key={userIndex}>
-                                  <strong>Username:</strong> {user.username}<br />
-                                  <strong>Email:</strong> {user.email}<br />
-                                  <strong>X Handle:</strong> {user.x_handle}<br />
-                                  {/* Add other user fields as needed */}
-                                </li>
-                              ))}
-                          </ul>
-                        </div>
-                      ))}
+
 
                       {walletHistory && (
                         <div>
