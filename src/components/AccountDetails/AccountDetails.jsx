@@ -27,12 +27,10 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         setWalletHistory(parsedResponse);
         try {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
-          setWalletLeaders(walletLeadersResponse.data.leaders);
-          alert(walletLeadersResponse.data.leaders);
+          setWalletLeaders(walletLeadersResponse.data.leaders); 
           const leadersString = JSON.stringify(walletLeadersResponse.data.leaders, null, 2);
           const parsedData = JSON.parse(leadersString);
           setLeadersData(parsedData);
-          alert(leadersString);
           console.log(leadersString);
           setLeadersString(leadersString);
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
@@ -49,7 +47,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
     };
 
     fetchCsrfToken();
-    
+
     const spanElement = document.querySelector('.wallet_address_span');
 
     if (spanElement) {
@@ -156,7 +154,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                         <tbody>
                           {leadersData.map((leader, index) => (
                             <tr key={index}>
-                              <td>{leader.token_owner}</td>
+                              <td><span class="wallet_address_span" >{leader.token_owner}</span></td>
                               <td>{leader.token_count}</td>
                               <td>{leader.balance}</td>
                             </tr>
