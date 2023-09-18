@@ -130,12 +130,29 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      <h1>Top Leaders</h1> 
+                      <h1>Top Leaders</h1>
                       <div>
                         <h2>JSON Data as String:</h2>
                         <pre>{leadersString}</pre>
                       </div>
-
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Token Owner</th>
+                            <th>Token Count</th>
+                            <th>Balance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {leadersString.map((leader, index) => (
+                            <tr key={index}>
+                              <td>{leader.token_owner}</td>
+                              <td>{leader.token_count}</td>
+                              <td>{leader.balance}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
 
                       {walletHistory && (
                         <div>
