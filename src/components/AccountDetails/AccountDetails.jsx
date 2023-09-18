@@ -133,6 +133,8 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           </li>
                         ))}
                       </ul>
+
+                      
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
