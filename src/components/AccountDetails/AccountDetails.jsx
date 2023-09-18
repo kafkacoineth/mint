@@ -151,6 +151,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                           ))}
                         </tbody>
                       </table>
+                        <hr className="my-4" />
                       {walletHistory && (
                         <div>
                           <h2>Token Records</h2>
@@ -159,7 +160,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                               <li key={index}>{record}</li>
                             ))}
                           </ul>
-
+                            <hr className="my-4" />
                           <h2>Token Balances</h2>
                           <ul>
                             {walletHistory.token_balances && walletHistory.token_balances.map((balance, index) => (
