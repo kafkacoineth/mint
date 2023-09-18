@@ -124,27 +124,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
                       />
                       </p>
 
-                      <h1>Top Leaders</h1>
-                      <div id="leaders-container">
-                        {walletLeaders.map(leader => (
-                          <div key={leader.token_owner} className="leader">
-                            <h2>{leader.token_owner}</h2>
-                            <p>Token Count: {leader.token_count}</p>
-                            <p>Balance: {leader.balance}</p>
-                            <ul>
-                              {leader.associated_users &&
-                                leader.associated_users.map(user => (
-                                  <li key={user.username}>
-                                    <strong>Username:</strong> {user.username}<br />
-                                    <strong>Email:</strong> {user.email}<br />
-                                    <strong>X Handle:</strong> {user.x_handle}<br />
-                                    {/* Add other user fields as needed */}
-                                  </li>
-                                ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
+                      <h1>Top Leaders</h1> 
 
 
                       {walletHistory && (
