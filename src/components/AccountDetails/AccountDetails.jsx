@@ -25,11 +25,7 @@ const AccountDetails = ({ accountAddress, accountBalance }) => {
         setWalletHistory(parsedResponse);
         try {
           const walletLeadersResponse = await axios.get(`/home/get_leaders/`);
-          alert(walletLeadersResponse.data);
-          const leadersData = walletLeadersResponse.data;
-          const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
-
-          setWalletLeaders(parsedLeadersResponse.leaders);
+          setWalletLeaders(walletLeadersResponse.data.leaders);
           //const parsedLeadersResponse = JSON.parse(walletLeadersResponse.data);
           //alert(parsedLeadersResponse)
           //setWalletLeaders(parsedLeadersResponse);
